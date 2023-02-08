@@ -8,10 +8,9 @@ import {
   StyleSheet,
 } from 'react-native';
 import styles from './Home.style';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { fetchUser, selectAll } from '../../stores/user.reducer';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-
+import { IconSearch } from '../../assets/theme/icons';
 const Home = ({ navigation }: any) => {
   const dispatch = useAppDispatch();
   const users = useAppSelector(selectAll);
@@ -38,13 +37,11 @@ const Home = ({ navigation }: any) => {
       <SafeAreaView style={styles.SafeAreaView1} />
       <SafeAreaView style={styles.SafeAreaView2}>
         <View style={styles.outerWrapper}>
-          <Icon name={'ios-person'} size={100} color={'purple'} />
-          <Icon name={'ios-home'} size={100} color={'purple'} />
-
           <View>
             <TouchableOpacity
               style={styles.buttonStyle}
               onPress={() => dispatch(fetchUser())}>
+                <IconSearch/>
               <Text style={styles.text}>Click here to show User data:</Text>
             </TouchableOpacity>
             <ListUser />

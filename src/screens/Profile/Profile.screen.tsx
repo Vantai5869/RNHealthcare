@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import styles from '../Home/Home.style';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { IconBack } from '../../assets/theme/icons';
 
 const Home = ({ navigation }: any) => {
   return (
@@ -16,6 +17,7 @@ const Home = ({ navigation }: any) => {
       <StatusBar barStyle="dark-content" backgroundColor={'#f9f9f9'} />
       <SafeAreaView style={styles.SafeAreaView1} />
       <SafeAreaView style={styles.SafeAreaView2}>
+       
         <View style={styles.outerWrapper}>
           <Icon name={'ios-settings'} size={100} color={'green'} />
           <View>

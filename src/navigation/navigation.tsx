@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home/Home.screen';
 import Profile from '../screens/Profile/Profile.screen';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { IconAppointment, IconBack, IconEmail, IconHome, IconSearch, IconUser } from '../assets/theme/icons';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -17,12 +18,47 @@ function MyTabs() {
         component={Home}
         options={{
           headerShown: false,
-          tabBarIcon: ({ color }: any) => {
-            return <Icon name={'ios-home'} size={25} color={color} />;
+          tabBarIcon: ({ color,focused }: any) => {
+            return <IconHome fill={focused? '#1648CE':'#929CAD'} />
           },
         }}
       />
       <Tab.Screen
+        name="Search"
+        component={Home}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, focused }: any) => {
+            return <IconSearch fill={focused? '#1648CE':'#929CAD'} /> //<Icon name={'ios-home'} size={25} color={color} />;
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Appointment"
+        component={Home}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, focused }: any) => {
+            return <IconAppointment fill={focused? '#1648CE':'#929CAD'} /> //<Icon name={'ios-home'} size={25} color={color} />;
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        
+        options={{
+          headerShown: true,
+          headerLeft:()=> <IconBack/>,
+          headerRight:()=> <IconEmail/>,
+          headerTitleAlign:'center',
+          headerRightContainerStyle:{ paddingRight:15},
+          tabBarIcon: ({ focused }: any) => {
+            return <IconUser fill={focused? '#1648CE':'#929CAD'} /> //<Icon name={'ios-home'} size={25} color={color} />;
+          },
+        }}
+      />
+      {/* <Tab.Screen
         name="Profile"
         component={Profile}
         options={{
@@ -31,7 +67,7 @@ function MyTabs() {
             return <Icon name={'ios-settings'} size={25} color={color} />;
           },
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 }
