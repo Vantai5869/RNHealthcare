@@ -1,51 +1,70 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  StatusBar,
-  TouchableOpacity,
-  Alert,
-} from 'react-native';
-import styles from '../Home/Home.style';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { IconBack } from '../../assets/theme/icons';
+import { SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { IconDateBirth, IconPenEdit, IconPhone } from '../../assets/theme/icons';
+import Avatar from '../../components/Avatar';
 
-const Home = ({ navigation }: any) => {
+const Profile = ({ navigation }: any) => {
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor={'#f9f9f9'} />
-      <SafeAreaView style={styles.SafeAreaView1} />
-      <SafeAreaView style={styles.SafeAreaView2}>
-       
-        <View style={styles.outerWrapper}>
-          <Icon name={'ios-settings'} size={100} color={'green'} />
-          <View>
-            <TouchableOpacity
-              onPress={() => Alert.alert('this is Profile Screen')}
-              style={styles.buttonStyle}>
-              <Text style={styles.text}>
-                this is{' '}
-                <Text style={{ fontWeight: 'bold', color: 'green' }}>
-                  {' '}
-                  PROFILE{' '}
-                </Text>{' '}
-                screen
-              </Text>
-            </TouchableOpacity>
+      <SafeAreaView >
+        <View style={styles.card}>
+          <Avatar />
+          <View style={styles.info}>
+            <Text style={styles.name}> Liza Trass</Text>
+            <View style={styles.dateBirth}>
+                <IconDateBirth/> 
+                <Text > 01.01.2022</Text>
+            </View>
+            <View style={styles.dateBirth}>
+                <IconPhone/> 
+                <Text > +1234567889</Text>
+            </View>
+          
           </View>
+          
+          <View style={styles.action}>
+            <IconPenEdit/>
+          </View>
+
         </View>
-        <View
-          style={{
-            alignContent: 'flex-end',
-            alignItems: 'flex-end',
-            padding: 10,
-          }}>
-          <Text style={{ color: '#808080' }}>by Handi.dev</Text>
+        <View >
+
         </View>
+
       </SafeAreaView>
     </>
   );
 };
 
-export default Home;
+export default Profile;
+
+const styles = StyleSheet.create({
+  card: {
+    marginTop:24,
+    backgroundColor: '#fff',
+    padding: 16,
+    borderRadius:16,
+    flexDirection:'row'
+  },
+  info:{
+    marginLeft:16,
+    flex:1
+  },
+  action:{
+    
+  },
+  name:{
+    fontFamily:'Montserrat-SemiBold',
+    color:'#091F44',
+    fontSize:16
+  },
+  phone:{
+    
+  },
+  dateBirth:{
+    flexDirection:'row',
+    alignItems:'center'
+  },
+
+})

@@ -5,6 +5,8 @@
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
     "jsx": "react",
     /* Completeness */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true   ,
+    "esModuleInterop": true,                                /* Skip type checking all .d.ts files. */
+    "noImplicitAny":false
   }
 }

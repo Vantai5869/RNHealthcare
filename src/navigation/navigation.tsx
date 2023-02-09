@@ -4,8 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home/Home.screen';
 import Profile from '../screens/Profile/Profile.screen';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { IconAppointment, IconBack, IconEmail, IconHome, IconSearch, IconUser } from '../assets/theme/icons';
+import Search from '../screens/Search';
+import Appointment from '../screens/Appointment';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -25,7 +26,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Search"
-        component={Home}
+        component={Search}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, focused }: any) => {
@@ -35,7 +36,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Appointment"
-        component={Home}
+        component={Appointment}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, focused }: any) => {
@@ -46,13 +47,13 @@ function MyTabs() {
       <Tab.Screen
         name="Profile"
         component={Profile}
-        
         options={{
           headerShown: true,
           headerLeft:()=> <IconBack/>,
           headerRight:()=> <IconEmail/>,
           headerTitleAlign:'center',
           headerRightContainerStyle:{ paddingRight:15},
+          headerStyle:{backgroundColor:'#FAFAFE'},
           tabBarIcon: ({ focused }: any) => {
             return <IconUser fill={focused? '#1648CE':'#929CAD'} /> //<Icon name={'ios-home'} size={25} color={color} />;
           },
@@ -75,7 +76,7 @@ function MyTabs() {
 const MainNavigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator screenOptions={{ headerShown: false }} >
         <Stack.Screen
           name="HomeBase"
           options={{ headerShown: false }}
