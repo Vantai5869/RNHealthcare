@@ -10,3 +10,4 @@ export {default as IconOClock} from './../icons/oClock.svg';
 export {default as IconPenEdit} from './../icons/penEdit.svg';
 export {default as IconDateBirth} from './../icons/dateBirth.svg';
 export {default as IconPhone} from './../icons/phone.svg';
+export {default as IconMessenger} from './../icons/messenger.svg';

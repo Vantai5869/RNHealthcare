@@ -4,9 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home/Home.screen';
 import Profile from '../screens/Profile/Profile.screen';
-import { IconAppointment, IconBack, IconEmail, IconHome, IconSearch, IconUser } from '../assets/theme/icons';
+import { IconAppointment, IconBack, IconEmail, IconHome, IconMessenger, IconSearch, IconUser } from '../assets/theme/icons';
 import Search from '../screens/Search';
 import Appointment from '../screens/Appointment';
+import Messenger from '../screens/Messenger';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -41,6 +42,16 @@ function MyTabs() {
           headerShown: false,
           tabBarIcon: ({ color, focused }: any) => {
             return <IconAppointment fill={focused? '#1648CE':'#929CAD'} /> //<Icon name={'ios-home'} size={25} color={color} />;
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Messenger"
+        component={Messenger}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, focused }: any) => {
+            return <IconMessenger fill={focused? '#1648CE':'#929CAD'} /> //<Icon name={'ios-home'} size={25} color={color} />;
           },
         }}
       />

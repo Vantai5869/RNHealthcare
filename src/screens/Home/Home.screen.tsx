@@ -99,6 +99,12 @@ const Home = ({ navigation }: any) => {
           <View style={{marginTop:10}}>
             <PostCard/>
           </View>
+          <View style={{marginTop:10}}>
+            <PostCard/>
+          </View>
+          <View style={{marginTop:10}}>
+            <PostCard/>
+          </View>
         </View>
         
         {/* <View style={styles.outerWrapper}>
