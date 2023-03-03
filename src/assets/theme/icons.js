@@ -10,3 +10,7 @@ export {default as IconOClock} from './../icons/oClock.svg';
 export {default as IconPenEdit} from './../icons/penEdit.svg';
 export {default as IconDateBirth} from './../icons/dateBirth.svg';
 export {default as IconPhone} from './../icons/phone.svg';
+export {default as IconNoti} from './../icons/noti.svg';
+export {default as IconPlus} from './../icons/plus.svg';
+export {default as IconRate} from './../icons/rate.svg';
+export {default as IconSuitCase} from './../icons/suitcase.svg';

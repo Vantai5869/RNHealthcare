@@ -5,16 +5,20 @@ export default StyleSheet.create({
     flexGrow: 1,
     paddingTop: 10,
     paddingHorizontal: 16,
-    backgroundColor:'#E5E5E5',
-    
+    backgroundColor:'#FFFFFF',
+  },
+  SafeAreaView2: { flex: 1, backgroundColor:'#FFFFFF' },
+  productList:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    flexWrap:'wrap'
 
   },
-  SafeAreaView2: { flex: 1, backgroundColor: '#E5E5E5' },
   outerWrapper: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#E5E5E5',
+    backgroundColor:'#FFFFFF',
   },
   buttonStyle: {
     backgroundColor: '#EEE',
@@ -45,6 +49,9 @@ export default StyleSheet.create({
   },
   info:{
 
+  },
+  search:{
+    marginTop:10
   },
   name:{
     color:'#091F44',
@@ -103,7 +110,7 @@ export default StyleSheet.create({
   },
   wapper:{
     marginTop:8,
-    backgroundColor:'#fff',
+    backgroundColor:'#B7B9E8',
     padding:16,
     borderRadius:16,
   },
@@ -118,5 +125,29 @@ export default StyleSheet.create({
   },
   switchBtn:{
     marginTop:24
-  }
+  },
+  headerWelcome:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center'
+  },
+  nameWelcome:{
+    fontFamily: 'Montserrat-Bold',
+  },
+  iconUser:{
+    flexDirection:'column',
+    flex:1,
+    marginLeft:15
+  },
+  icon:{
+    borderWidth:1,
+    padding:10,
+    height:40,
+    flexDirection:'row',
+    alignItems:'center',
+    borderRadius:10,
+    borderColor:'#DFE0FB'
+    
+  },
+
 });

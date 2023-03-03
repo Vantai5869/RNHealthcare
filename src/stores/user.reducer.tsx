@@ -6,6 +6,9 @@ import {
 import { getUser } from '../api/fakeApiUser';
 
 export const fetchUser = createAsyncThunk('user/getUser', async () => {
+  console.log('====================================');
+  console.log("xxx");
+  console.log('====================================');
   const response = await getUser();
   return response.data;
 });

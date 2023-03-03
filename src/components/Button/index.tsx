@@ -16,24 +16,24 @@ const styles= StyleSheet.create({
     container:{
         flex:1,
         borderRadius:12,
-        padding:10,
+        padding:20,
         flexDirection:'row',
         justifyContent:'center'
     },
     bg:{
-        backgroundColor:'#1648CE',
+        backgroundColor:'#585CE5',
 
     },
     bgTitle:{
-        backgroundColor:'#1648CE',
+        backgroundColor:'#585CE5',
         color:'#fff'
     },
     border:{
         backgroundColor:'#fff',
-        borderColor:'#1648CE',
+        borderColor:'#585CE5',
         borderWidth:1
     },
     borderTitle:{
-        color:'#1648CE',
+        color:'#585CE5',
     }
 })
