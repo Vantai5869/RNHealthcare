@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">reactNativeTypescriptBoilerplate</string>
+    <string name="app_name">health</string>
+    <color name="patch_coral">#E97A6E</color>
 </resources>

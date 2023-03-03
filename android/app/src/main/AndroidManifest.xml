@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.reactnativetypescriptboilerplate">
+  xmlns:tools="http://schemas.android.com/tools"
+  package="com.health">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -22,5 +23,16 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+        <!-- firebase icon -->
+      <meta-data
+        android:name="com.google.firebase.messaging.default_notification_icon"
+        android:resource="@mipmap/ic_noti_icon" />
+        <!-- Set color used with incoming notification messages -->
+      <meta-data
+        android:name="com.google.firebase.messaging.default_notification_color"
+        android:resource="@color/colorPrimary"
+        tools:replace="android:resource"
+      />
+
     </application>
 </manifest>
