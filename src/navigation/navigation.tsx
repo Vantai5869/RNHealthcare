@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home/Home.screen';
 import Profile from '../screens/Profile/Profile.screen';
-import { IconAppointment, IconBack, IconEmail, IconHome, IconSearch, IconUser } from '../assets/theme/icons';
+import { IconAppointment, IconBack, IconEmail, IconHome, IconMessenger, IconSearch, IconUser } from '../assets/theme/icons';
 import Search from '../screens/Search';
 import Appointment from '../screens/Appointment';
 import Login from '../screens/Login/Login.screen';

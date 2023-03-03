@@ -14,3 +14,4 @@ export {default as IconNoti} from './../icons/noti.svg';
 export {default as IconPlus} from './../icons/plus.svg';
 export {default as IconRate} from './../icons/rate.svg';
 export {default as IconSuitCase} from './../icons/suitcase.svg';
+export {default as IconMessenger} from './../icons/messenger.svg';
