@@ -77,12 +77,6 @@ const Home = ({ navigation }: any) => {
             ]}/>
             
           </View>
-          <View style={{marginTop:10}}>
-            <PostCard/>
-          </View>
-          <View style={{marginTop:10}}>
-            <PostCard/>
-          </View>
         </View>
         <View>
           <Title title={'Phổ biến'} />
