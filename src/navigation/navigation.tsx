@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from '../screens/Home/Home.screen';
-import Profile from '../screens/Profile/Profile.screen';
-import { IconAppointment, IconBack, IconEmail, IconHome, IconMessenger, IconSearch, IconUser } from '../assets/theme/icons';
-import Search from '../screens/Search';
-import Appointment from '../screens/Appointment';
-import Login from '../screens/Login/Login.screen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React, { useEffect, useState } from 'react';
+import { IconAppointment, IconBack, IconEmail, IconHome, IconMessenger, IconUser } from '../assets/theme/icons';
 import { useAppSelector } from '../hooks/redux';
+import Appointment from '../screens/Appointment';
+import Home from '../screens/Home/Home.screen';
+import Login from '../screens/Login/Login.screen';
+import Messenger from '../screens/Messenger';
+import Profile from '../screens/Profile/Profile.screen';
 import { selectAll } from '../stores/user.reducer';
+import HomeTab from './home';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -34,7 +35,7 @@ function MyTabs() {
             <>
               <Tab.Screen
                 name="Home"
-                component={Home}
+                component={HomeTab}
                 options={{
                   headerShown: false,
                   tabBarIcon: ({ color, focused }: any) => {
@@ -42,16 +43,7 @@ function MyTabs() {
                   },
                 }}
               />
-              <Tab.Screen
-                name="Search"
-                component={Search}
-                options={{
-                  headerShown: false,
-                  tabBarIcon: ({ color, focused }: any) => {
-                    return <IconSearch fill={focused ? '#1648CE' : '#929CAD'} /> //<Icon name={'ios-home'} size={25} color={color} />;
-                  },
-                }}
-              />
+             
               <Tab.Screen
                 name="Appointment"
                 component={Appointment}
@@ -59,6 +51,17 @@ function MyTabs() {
                   headerShown: false,
                   tabBarIcon: ({ color, focused }: any) => {
                     return <IconAppointment fill={focused ? '#1648CE' : '#929CAD'} /> //<Icon name={'ios-home'} size={25} color={color} />;
+                  },
+                }}
+              />
+               <Tab.Screen
+                name="Trò chuyện"
+                component={Messenger}
+                options={{
+                  headerShown: true,
+                  headerTitleAlign:'center',
+                  tabBarIcon: ({ color, focused }: any) => {
+                    return <IconMessenger fill={focused ? '#1648CE' : '#929CAD'} /> //<Icon name={'ios-home'} size={25} color={color} />;
                   },
                 }}
               />

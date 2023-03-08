@@ -23,7 +23,7 @@ export async function GetFCMToken() {
         AsyncStorage.setItem("fcmtoken", fcmtoken);
       }
     } catch (error) {
-
+      console.log({error})
     }
   }
   console.log({fcmtoken});

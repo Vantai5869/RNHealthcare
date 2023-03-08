@@ -49,6 +49,10 @@ const Home = ({ navigation }: any) => {
     console.log({ e })
   }
 
+  const gotoNotification=()=>{
+    navigation.navigate('Notification')
+  }
+
   return (
     <ScrollView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#E5E5E5" />
@@ -60,9 +64,9 @@ const Home = ({ navigation }: any) => {
             <Text style={styles.nameWelcome}>Hi, JayPahm </Text>
             <Text>Hà Nội </Text>
           </View>
-          <View style={styles.icon}>
+          <TouchableOpacity onPress={gotoNotification} style={styles.icon}>
             <IconNoti />
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.search}>
           <Search />
