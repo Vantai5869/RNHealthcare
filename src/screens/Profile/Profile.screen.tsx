@@ -1,9 +1,11 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { IconDateBirth, IconPenEdit, IconPhone } from '../../assets/theme/icons';
 import Avatar from '../../components/Avatar';
+import useCurrentUser from '../../stores/actions/useCurrentUser';
 
 const Profile = ({ navigation }: any) => {
+  const {resetAuth, currentUser}= useCurrentUser();
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor={'#f9f9f9'} />
@@ -13,18 +15,18 @@ const Profile = ({ navigation }: any) => {
           <View style={styles.info}>
             <Text style={styles.name}> Liza Trass</Text>
             <View style={styles.dateBirth}>
-                <IconDateBirth/> 
-                <Text > 01.01.2022</Text>
+              <IconDateBirth />
+              <Text > 01.01.2022</Text>
             </View>
             <View style={styles.dateBirth}>
-                <IconPhone/> 
-                <Text > +1234567889</Text>
+              <IconPhone />
+              <Text > +1234567889</Text>
             </View>
-          
+
           </View>
-          
+
           <View style={styles.action}>
-            <IconPenEdit/>
+            <IconPenEdit />
           </View>
 
         </View>
@@ -32,6 +34,9 @@ const Profile = ({ navigation }: any) => {
 
         </View>
 
+        <TouchableOpacity style={styles.button} onPress={resetAuth}>
+          <Text style={styles.buttonText}>Đăng Xuất</Text>
+        </TouchableOpacity>
       </SafeAreaView>
     </>
   );
@@ -41,30 +46,43 @@ export default Profile;
 
 const styles = StyleSheet.create({
   card: {
-    marginTop:24,
+    marginTop: 24,
     backgroundColor: '#fff',
     padding: 16,
-    borderRadius:16,
-    flexDirection:'row'
+    borderRadius: 16,
+    flexDirection: 'row'
   },
-  info:{
-    marginLeft:16,
-    flex:1
+  info: {
+    marginLeft: 16,
+    flex: 1
   },
-  action:{
-    
+  action: {
+
   },
-  name:{
-    fontFamily:'Montserrat-SemiBold',
-    color:'#091F44',
-    fontSize:16
+  name: {
+    fontFamily: 'Montserrat-SemiBold',
+    color: '#091F44',
+    fontSize: 16
   },
-  phone:{
-    
+  phone: {
+
   },
-  dateBirth:{
-    flexDirection:'row',
-    alignItems:'center'
+  dateBirth: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  button: {
+    backgroundColor: '#f44336',
+    padding: 10,
+    borderRadius: 5,
+    marginHorizontal: 20,
+    marginVertical: 10,
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 
 })

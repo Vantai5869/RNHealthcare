@@ -3,28 +3,23 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
 import { IconAppointment, IconBack, IconEmail, IconHome, IconMessenger, IconUser } from '../assets/theme/icons';
-import { useAppSelector } from '../hooks/redux';
 import Appointment from '../screens/Appointment';
-import Home from '../screens/Home/Home.screen';
 import Login from '../screens/Login/Login.screen';
 import Messenger from '../screens/Messenger';
 import Profile from '../screens/Profile/Profile.screen';
-import { selectAll } from '../stores/user.reducer';
+import useCurrentUser from '../stores/actions/useCurrentUser';
 import HomeTab from './home';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
-  const [isLogin, setIsLogin] = useState(false)
-  const user = useAppSelector(state=>state.auth.data);
+  const [isLogin, setIsLogin] = useState(false);
+  const {currentUser:user} = useCurrentUser();
   useEffect(() => {
     if (!!user) {
       setIsLogin(true);
     }
-    console.log('====================================');
-    console.log({user});
-    console.log('====================================');
   }, [user])
   return (
     <Tab.Navigator
@@ -33,7 +28,7 @@ function MyTabs() {
       }}
     >
       {
-        isLogin ?
+        !!user ?
           (
             <>
               <Tab.Screen

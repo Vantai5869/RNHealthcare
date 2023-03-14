@@ -1,25 +1,18 @@
-import { useMutation } from '@apollo/client';
 import React, { useState } from 'react';
 import {
-  SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, TextInput
+  SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TextInput, View
 } from 'react-native';
 import Button from '../../components/Button';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { fetchUser, selectAll, setUser } from '../../stores/user.reducer';
-import {LOGIN} from './../../gql/auth.gql';
+import useCurrentUser from '../../stores/actions/useCurrentUser';
 import styles from './Login.style';
 const Login = ({ navigation }: any) => {
-  const [startLogin,{data,error, loading}]= useMutation(LOGIN)
-  const dispatch= useAppDispatch();
-  const [text, setText] = useState('');
+  const {startLogin, loading,error}= useCurrentUser()
   const [inputLogin, setInputLogin] = useState({
 
   });
 
   if (error) {
-    console.log('====================================');
     console.log({error});
-    console.log('====================================');
   }
 
   if(loading){
@@ -29,7 +22,6 @@ const Login = ({ navigation }: any) => {
     </Text>
     </>
   }else{
-    console.log({data})
   }
   const onChangeText=(text, key)=>{
     setInputLogin({

@@ -1,48 +1,30 @@
-import {
-  createSlice,
-  createAsyncThunk,
-  createEntityAdapter,
-} from '@reduxjs/toolkit';
-import { getUser } from '../api/fakeApiUser';
+import { createSlice } from '@reduxjs/toolkit';
 
-export const fetchUser = createAsyncThunk('user/getUser', async () => {
-  const response = await getUser();
-  return response.data;
-});
-
-const userAdapter = createEntityAdapter();
+const initialState = {
+  currentUser: null,
+  isLoading: false,
+  error: null,
+};
 
 const userSlice = createSlice({
   name: 'user',
-  initialState: {
-    isLoading: false,
-    data:undefined
-  },
+  initialState,
   reducers: {
-    setUser:(state, action:any)=>{
-      state.data=action
-    }
-  },
-  extraReducers: builder => {
-    builder
-      .addCase(fetchUser.pending, (state, action) => {
-        state.isLoading = true;
-      })
-      .addCase(fetchUser.fulfilled, (state, action: any) => {
-        // userAdapter.setAll(state, action.payload);
-        state.data=action.payload,
-        state.isLoading = false;
-      })
-      .addCase(fetchUser.rejected, state => {
-        state.isLoading = false;
-      });
+    setCurrentUser: (state, action) => {
+      state.currentUser = action.payload;
+    },
+    setLoading: (state, action) => {
+      state.isLoading = action.payload;
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
+    resetUser: (state) => {
+      state.currentUser = null;
+    },
   },
 });
 
-export const { selectAll } = userAdapter.getSelectors(
-  (state: any) => state.auth,
-);
-
-
-export const { setUser } = userSlice.actions
+export const { setCurrentUser, setLoading, setError, resetUser } = userSlice.actions;
+export const selectCurrentUser= state=>state.auth.currentUser;
 export default userSlice.reducer;
