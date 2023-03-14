@@ -1,12 +1,19 @@
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { CardStyleInterpolators, createStackNavigator, HeaderStyleInterpolators, TransitionPresets } from '@react-navigation/stack';
 import React from 'react';
 import { IconHome } from '../../assets/theme/icons';
 import Home from '../../screens/Home/Home.screen';
 import Notification from '../../screens/Notification';
 
 
-const Navigation = createNativeStackNavigator();
+const Navigation = createStackNavigator();
+
+const forFade = ({ current }) => ({
+    cardStyle: {
+      opacity: current.progress,
+      
+    },
+  });
 
 function HomeTab({ navigation, route }) {
   React.useLayoutEffect(() => {
@@ -37,6 +44,7 @@ function HomeTab({ navigation, route }) {
                   gestureEnabled: false,
                   headerTitleAlign:'center',
                   title: 'Thông báo',
+                  cardStyleInterpolator: forFade,
                 })}
             />
         </Navigation.Navigator>

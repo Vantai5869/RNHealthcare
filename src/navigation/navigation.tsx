@@ -17,12 +17,15 @@ const Tab = createBottomTabNavigator();
 
 function MyTabs() {
   const [isLogin, setIsLogin] = useState(false)
-  const users = useAppSelector(selectAll);
+  const user = useAppSelector(state=>state.auth.data);
   useEffect(() => {
-    if (users.length > 0) {
+    if (!!user) {
       setIsLogin(true);
     }
-  }, [users])
+    console.log('====================================');
+    console.log({user});
+    console.log('====================================');
+  }, [user])
   return (
     <Tab.Navigator
       screenOptions={{
@@ -34,7 +37,7 @@ function MyTabs() {
           (
             <>
               <Tab.Screen
-                name="Home"
+                name="HomeTab"
                 component={HomeTab}
                 options={{
                   headerShown: false,

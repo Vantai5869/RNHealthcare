@@ -1,19 +1,52 @@
+import { useMutation } from '@apollo/client';
 import React, { useState } from 'react';
 import {
   SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, TextInput
 } from 'react-native';
 import Button from '../../components/Button';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { fetchUser, selectAll } from '../../stores/user.reducer';
+import { fetchUser, selectAll, setUser } from '../../stores/user.reducer';
+import {LOGIN} from './../../gql/auth.gql';
 import styles from './Login.style';
 const Login = ({ navigation }: any) => {
+  const [startLogin,{data,error, loading}]= useMutation(LOGIN)
   const dispatch= useAppDispatch();
-  const [text, setText] = useState('')
-  const onChangeText=(text)=>{
+  const [text, setText] = useState('');
+  const [inputLogin, setInputLogin] = useState({
 
+  });
+
+  if (error) {
+    console.log('====================================');
+    console.log({error});
+    console.log('====================================');
   }
+
+  if(loading){
+    return <>
+    <Text>
+      loading...
+    </Text>
+    </>
+  }else{
+    console.log({data})
+  }
+  const onChangeText=(text, key)=>{
+    setInputLogin({
+      ...inputLogin,
+      [key]:text
+    })
+  }
+  console.log('====================================');
+  console.log({inputLogin});
+  console.log('====================================');
   const handleLogin=()=>{
-    dispatch(fetchUser())
+    startLogin({
+      variables:{
+        inputLogin
+      }
+    })
+    // dispatch(setUser('xxx'))
   }
   return (
     <ScrollView style={styles.container}>
@@ -28,14 +61,14 @@ const Login = ({ navigation }: any) => {
         <View style={styles.form}>
           <TextInput
             style={styles.input}
-            onChangeText={onChangeText}
-            value={text}
+            onChangeText={(txt)=>onChangeText(txt, 'email')}
+            value={inputLogin['email']}
             placeholder={'Email'}
           />
           <TextInput
             style={styles.input}
-            onChangeText={onChangeText}
-            value={text}
+            onChangeText={(txt)=>onChangeText(txt, 'password')}
+            value={inputLogin['password']}
             placeholder={'Password'}
           />
           <Text style={styles.forgotPassword}>Quên mật khẩu?</Text>

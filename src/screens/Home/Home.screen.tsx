@@ -26,23 +26,8 @@ import ProductHoriCard from '../../components/ProductHoriCard';
 import ApointmentCard from '../../components/ApointmentCard';
 const Home = ({ navigation }: any) => {
   const dispatch = useAppDispatch();
-  const users = useAppSelector(selectAll);
   const [currentActive, setCurrentActive] = useState();
-  function ListUser() {
-    return (
-      <>
-        {users.map((data: any) => {
-          return (
-            <View key={data?.id} style={styleUser as any}>
-              <Text style={{ fontSize: 15 }}>
-                {data?.id}. {data?.name}
-              </Text>
-            </View>
-          );
-        })}
-      </>
-    );
-  }
+
 
   const handlePress = (e) => {
     setCurrentActive(e);
